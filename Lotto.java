@@ -1,9 +1,8 @@
 import java.util.Random;                // a véletlen szám generáló osztály importálása
 public class Lotto{
     public static void main(String[] args) {
-        
-        int[] lottoszamok = new int[5]; //létrehozunk egy tömböt, öt elemmel
         /*
+        int[] lottoszamok = new int[5]; //létrehozunk egy tömböt, öt elemmel
         lottoszamok[0] = 34;            //feltöltjük a tömböt, a 0 az az index, 
         lottoszamok[1] = 7;             //a tömb mutatója hogy melyik elemnél van
         lottoszamok[2] = 83;            //mindig 0-val kezdődik, az az első elem       
@@ -21,27 +20,25 @@ public class Lotto{
         }
         */
 
-        
-        Random szam = new Random();
-        int temp;
-        int szamlalo = 0;
+        int[] lottoszamok = new int[5]; //létrehozunk egy tömböt, öt elemmel
+        Random szam = new Random();     // a szam változóhoz rendeljük a véletlen generátor osztályát
+        int temp;                       // létrehozzuk a temp változót, ebben tároljuk a generált véletlenszámot
+        int szamlalo = 0;               // a kihúzott számok darabszáma
 
-        while(szamlalo < 5){
-            temp = szam.nextInt(5) + 1;
-            boolean egyforma = false;
+        while(szamlalo < 5){            // addig megyünk amíg nincs meg az öt szám
+            temp = szam.nextInt(90) + 1;    //létrehozunk egy számot /1-90 között/
+            boolean egyforma = false;   //az egyforma változón vizsgáljuk majd hogy egyforma-e :)
          
-            for (int k = szamlalo - 1; k >=0; k--){ 
-                
-                if(lottoszamok[k] == temp)  {
+            for (int k = szamlalo - 1; k >=0; k--){     //a kihúzott számokon végigmegyünk egy ciklussal és vizsgáljuk hogy egyforma-e valamelyik
+                                                        //
+                if(lottoszamok[k] == temp)  {           //ha egyforma akkor ezt eltároljuk az egyforma változóban
                     egyforma = true;
                 }
             }
-            if(!egyforma){
-                lottoszamok[szamlalo] = temp;
-                szamlalo++;
+            if(!egyforma){                      // ha nem egyforma /az !egyforma azt jelenti hogy: egyforma == true
+                lottoszamok[szamlalo] = temp;   //...akkor eltároljuk a tömbben
+                szamlalo++;                     //..és növeljük a számlálót
             }   
-
-            System.out.println(szamlalo);
         };
 
         System.out.print("Lottószámok: ");

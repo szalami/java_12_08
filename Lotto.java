@@ -35,7 +35,7 @@ public class Lotto{
                     egyforma = true;
                 }
             }
-            if(!egyforma){                      // ha nem egyforma /az !egyforma azt jelenti hogy: egyforma == true
+            if(!egyforma){                      // ha nem egyforma /az !egyforma azt jelenti hogy: egyforma != true azaz nem egyenlő
                 lottoszamok[szamlalo] = temp;   //...akkor eltároljuk a tömbben
                 szamlalo++;                     //..és növeljük a számlálót
             }   
